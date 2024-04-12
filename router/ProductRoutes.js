@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../controller/ProductController');
 
-router.post('/products', productController.createProduct);
-router.get("/getProduct", productController.getProduct);
-router.get("/getProduct/:id", productController.getOneProd);
+router.post('/api/products', productController.createProduct);
+router.get("/api/getProduct", productController.getProduct);
+router.get("/api/getProduct/:id", productController.getOneProd);
+router.get("/", productController.Home)
+router.all('*', productController.ErrorP)
 module.exports = router;
